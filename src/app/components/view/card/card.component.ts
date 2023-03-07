@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Music} from "../../../model/Music";
 
 @Component({
@@ -8,9 +8,21 @@ import {Music} from "../../../model/Music";
 })
 export class CardComponent {
 
+    @Output('removeMusic')
+    remove$: EventEmitter<any> = new EventEmitter();
+    @Output('updateMusic')
+    update$: EventEmitter<any> = new EventEmitter();
+
     @Input()
     public music!: Music;
 
     constructor() {
+    }
+
+    remove() {
+        this.remove$.emit(this.music);
+    }
+    update() {
+        this.update$.emit(this.music);
     }
 }

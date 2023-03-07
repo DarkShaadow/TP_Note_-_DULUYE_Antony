@@ -17,10 +17,10 @@
             <td>{{ music?.duration }}</td>
             <td>{{ getStyles(music) }}</td>
             <td>
-                <button mat-mini-fab aria-label="Editer" color="accent">
+                <button mat-mini-fab aria-label="Editer" color="accent" (click)="update(music)">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-mini-fab aria-label="Supprimer" color="warn">
+                <button mat-mini-fab aria-label="Supprimer" color="warn" (click)="remove(music)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </td>

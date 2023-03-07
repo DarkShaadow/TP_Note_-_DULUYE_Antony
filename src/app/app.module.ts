@@ -10,13 +10,18 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
 import {HttpClientModule} from "@angular/common/http";
+import { MusicEditorComponent } from './components/music-editor/music-editor.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
     declarations: [
         AppComponent,
         MusicListComponent,
         CardComponent,
-        TabloComponent
+        TabloComponent,
+        MusicEditorComponent
     ],
     imports: [
         BrowserModule,
@@ -24,7 +29,10 @@ import {HttpClientModule} from "@angular/common/http";
         MatIconModule,
         MatButtonModule,
         MatTableModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatDialogModule
     ],
     providers: [],
     bootstrap: [AppComponent]
