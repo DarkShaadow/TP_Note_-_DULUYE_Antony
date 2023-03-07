@@ -18,6 +18,6 @@ export class TabloComponent implements OnInit {
     }
 
     getStyles(music: Music): string {
-        return music.style?.reduce((a, b) => a + " " + b);
+        return music.styles?.reduce((a, b) => a + " " + b);
     }
 }

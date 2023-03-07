@@ -6,6 +6,6 @@ export interface Music {
     artist: string;
     duration: string;
     date: Date;
-    style: string[];
+    styles: string[];
     picture: string;
 }
