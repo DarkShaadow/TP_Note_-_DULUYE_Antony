@@ -8,14 +8,38 @@
         <form [formGroup]="form" class="normal-form">
             <p *ngIf="dialogType === 'create'">
                 <mat-form-field>
-                    <mat-label>titre</mat-label>
+                    <mat-label>Titre</mat-label>
                     <input formControlName="titre" name="titre" placeholder="Titre" required/>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
-                    <mat-label>titre</mat-label>
+                    <mat-label>Description</mat-label>
                     <input formControlName="description" name="description" placeholder="Description"/>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Album</mat-label>
+                    <input formControlName="album" name="album" placeholder="album"/>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Artist</mat-label>
+                    <input formControlName="artist" name="artist" placeholder="artist"/>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Duration</mat-label>
+                    <input formControlName="duration" name="duration" placeholder="duration"/>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Date</mat-label>
+                    <input formControlName="date" name="date" placeholder="date"/>
                 </mat-form-field>
             </p>
         </form>

@@ -25,7 +25,11 @@ export class MusicEditorComponent implements OnInit {
     private static buildForm(): FormGroup {
         return new FormGroup({
             titre: new FormControl("", Validators.compose([Validators.required, Validators.minLength(2)])),
-            description: new FormControl("")
+            description: new FormControl(""),
+            album: new FormControl(""),
+            artist: new FormControl(""),
+            duration: new FormControl(""),
+            date: new FormControl("")
         });
     }
 
@@ -33,7 +37,11 @@ export class MusicEditorComponent implements OnInit {
         console.log("Filling form");
         this.form.patchValue({
             titre: this.currentMusic?.title,
-            description: this.currentMusic?.description
+            description: this.currentMusic?.description,
+            album: this.currentMusic?.album,
+            artist: this.currentMusic?.artist,
+            duration: this.currentMusic?.duration,
+            date: this.currentMusic?.date,
         })
     }
 
@@ -46,7 +54,11 @@ export class MusicEditorComponent implements OnInit {
         const returnedMusic = {
             id: this.currentMusic?.id,
             title: musicDialog.titre,
-            description: musicDialog.description
+            description: musicDialog.description,
+            album: musicDialog.album,
+            artist: musicDialog.artist,
+            duration: musicDialog.duration,
+            date: musicDialog.date
         }
         this.dialogRef.close({music: returnedMusic});
     }
