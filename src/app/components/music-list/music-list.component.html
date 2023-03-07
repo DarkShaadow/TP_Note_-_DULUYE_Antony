@@ -7,6 +7,12 @@
     <div *ngIf="randomView">
         <button (click)="onClickRandomView()">Aficher toutes les musiques</button>
     </div>
+    <div>
+        <mat-form-field class="form-field-toolbar">
+            <input [(ngModel)]="searchTerm" matInput placeholder="Titre d'une musique">
+        </mat-form-field>
+        <button  mat-flat-button color="primary" (click)="onClickSearchMusicByName()">Rechercher</button>
+    </div>
     <ng-container *ngIf="!randomView">
         <ng-container *ngIf="toggleView">
             <app-card *ngFor="let music of data" [music]="music" (removeMusic)="remove($event)" (updateMusic)="update($event)"></app-card>

@@ -23,11 +23,10 @@ export class TabloComponent implements OnInit {
     }
 
     getStyles(music: Music): string {
-        console.log(music);
         if (music?.styles?.length == 0) {
             return "";
         }
-        return music?.styles?.reduce((a, b) => a + " " + b);
+        return music?.styles?.reduce((a, b) => a + " - " + b);
     }
 
     remove(music: Music) {

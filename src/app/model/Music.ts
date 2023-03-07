@@ -7,5 +7,5 @@ export interface Music {
     duration: string;
     date: Date;
     styles: string[];
-    picture: string;
+    picture?: string;
 }

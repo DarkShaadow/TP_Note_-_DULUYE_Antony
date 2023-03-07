@@ -1,15 +1,17 @@
 <mat-card class="carteCustom" style="width: 33%; display: inline-block">
+    <img style="height: 100px" [src]="music.picture" alt="Cover">
     <mat-card-header>
-        <mat-card-title>{{music?.title}}</mat-card-title>
+        <mat-card-title>{{music.title}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <mat-card-subtitle class="info">
-            <span>{{ music?.album }} - {{ music?.artist }}</span>
+            <span>{{ music.album }} - {{ music.artist }}</span>
         </mat-card-subtitle>
         <mat-card-subtitle class="info">
-            <span>{{ music?.duration }} - {{ music?.date }}</span>
+            <span>{{ music.duration }} - {{ music.date }}</span>
         </mat-card-subtitle>
-        <div>{{ music?.description }}</div>
+        <div>{{ music.description }}</div>
+        <div>{{ getStyles() }}</div>
     </mat-card-content>
 
     <mat-card-actions align="end" *ngIf="random !== 'true'">

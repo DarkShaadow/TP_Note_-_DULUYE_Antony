@@ -15,6 +15,7 @@ export class MusicListComponent implements OnInit {
     randomView: boolean;
     data: Music[];
     randomMusic: Music;
+    searchTerm: string | undefined;
 
     constructor(private musicService: MusicService,
                 private dialog: MatDialog) {
@@ -88,5 +89,17 @@ export class MusicListComponent implements OnInit {
     onClickRefreshRandomMusic() {
         this.musicService.random()
             .subscribe(response => this.randomMusic = response);
+    }
+
+    onClickSearchMusicByName() {
+        if (this.searchTerm !== undefined && this.searchTerm.trim() != "") {
+            this.musicService.search(this.searchTerm)
+                .subscribe(response => {
+                    this.data = response;
+                });
+        }
+        else {
+            this.loadMusics();
+        }
     }
 }

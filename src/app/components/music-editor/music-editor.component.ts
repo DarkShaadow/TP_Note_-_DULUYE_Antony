@@ -24,7 +24,7 @@ export class MusicEditorComponent implements OnInit {
 
     private static buildForm(): FormGroup {
         return new FormGroup({
-            titre: new FormControl("", Validators.compose([Validators.required, Validators.minLength(2)])),
+            titre: new FormControl(""),
             description: new FormControl(""),
             album: new FormControl(""),
             artist: new FormControl(""),

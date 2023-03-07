@@ -1,6 +1,7 @@
 <ng-container>
     <table>
         <tr>
+            <td></td>
             <td>Titre</td>
             <td>Album</td>
             <td>Artist</td>
@@ -10,6 +11,7 @@
             <td></td>
         </tr>
         <tr *ngFor="let music of musics">
+            <td><img style="height: 100px" [src]="music?.picture" alt="Cover"></td>
             <td>{{ music?.title }}</td>
             <td>{{ music?.album }}</td>
             <td>{{ music?.artist }}</td>

@@ -27,4 +27,11 @@ export class CardComponent {
     update() {
         this.update$.emit(this.music);
     }
+
+    getStyles(): string {
+        if (this.music?.styles?.length == 0) {
+            return "";
+        }
+        return this.music?.styles?.reduce((a, b) => a + " - " + b);
+    }
 }
