@@ -12,12 +12,26 @@ import {MatDialog} from "@angular/material/dialog";
 export class MusicListComponent implements OnInit {
 
     toggleView: boolean;
+    randomView: boolean;
     data: Music[];
+    randomMusic: Music;
 
     constructor(private musicService: MusicService,
                 private dialog: MatDialog) {
-        this.toggleView = false;
+        this.toggleView = true;
+        this.randomView = false;
         this.data = [];
+        this.randomMusic = {
+            id: "",
+            title: "",
+            description: "",
+            album: "",
+            artist: "",
+            duration: "",
+            date: new Date,
+            styles: [],
+            picture: "",
+        };
     }
 
     ngOnInit(): void {
@@ -28,7 +42,6 @@ export class MusicListComponent implements OnInit {
         this.musicService.getAll()
             .subscribe(response => {
                 this.data = response;
-                console.log(response);
             });
     }
 
@@ -61,5 +74,19 @@ export class MusicListComponent implements OnInit {
                     .subscribe(() => this.loadMusics());
             }
         });
+    }
+
+    onClickRandomView() {
+        this.randomView = !this.randomView;
+
+        if (this.randomView) {
+            this.musicService.random()
+                .subscribe(response => this.randomMusic = response);
+        }
+    }
+
+    onClickRefreshRandomMusic() {
+        this.musicService.random()
+            .subscribe(response => this.randomMusic = response);
     }
 }

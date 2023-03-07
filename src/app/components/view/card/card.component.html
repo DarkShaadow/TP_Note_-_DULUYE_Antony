@@ -12,7 +12,7 @@
         <div>{{ music?.description }}</div>
     </mat-card-content>
 
-    <mat-card-actions align="end">
+    <mat-card-actions align="end" *ngIf="random !== 'true'">
         <button mat-mini-fab aria-label="Editer" color="accent" (click)="update()">
             <mat-icon>edit</mat-icon>
         </button>

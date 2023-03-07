@@ -1,10 +1,22 @@
 <ng-container>
-    <div>
+    <div *ngIf="!randomView">
         <button (click)="onClickToggleView()">Changer vue</button>
         <button (click)="add()">Ajouter une musique</button>
+        <button (click)="onClickRandomView()">Afficher une musique aléatoire</button>
     </div>
-    <ng-container *ngIf="toggleView">
-        <app-card *ngFor="let music of data" [music]="music" (removeMusic)="remove($event)" (updateMusic)="update($event)"></app-card>
+    <div *ngIf="randomView">
+        <button (click)="onClickRandomView()">Aficher toutes les musiques</button>
+    </div>
+    <ng-container *ngIf="!randomView">
+        <ng-container *ngIf="toggleView">
+            <app-card *ngFor="let music of data" [music]="music" (removeMusic)="remove($event)" (updateMusic)="update($event)"></app-card>
+        </ng-container>
+        <app-tablo *ngIf="!toggleView" [musics]="data" (removeMusic)="remove($event)" (updateMusic)="update($event)"></app-tablo>
     </ng-container>
-    <app-tablo *ngIf="!toggleView" [musics]="data" (removeMusic)="remove($event)" (updateMusic)="update($event)"></app-tablo>
+    <ng-container *ngIf="randomView">
+        <div>
+            <button (click)="onClickRefreshRandomMusic()">Refresh</button>
+        </div>
+        <app-card [music]="randomMusic" random="true"></app-card>
+    </ng-container>
 </ng-container>

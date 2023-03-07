@@ -15,6 +15,8 @@ export class CardComponent {
 
     @Input()
     public music!: Music;
+    @Input()
+    public random!: string;
 
     constructor() {
     }
