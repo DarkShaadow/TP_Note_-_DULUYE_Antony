@@ -1,0 +1,9 @@
+<ng-container>
+    <div>
+        <button (click)="onClickToggleView()">Changer vue</button>
+    </div>
+    <ng-container *ngIf="toggleView">
+        <app-card *ngFor="let music of data" [music]="music"></app-card>
+    </ng-container>
+    <app-tablo *ngIf="!toggleView" [musics]="data"></app-tablo>
+</ng-container>
